@@ -1,5 +1,7 @@
 #!/bin/sh
 
+format="251/140"
+
 all_ids=""
 
 get_ids(){
@@ -29,7 +31,7 @@ printf "%s" "$all_ids"
 download_songs(){
 
 	echo "$all_ids" | xargs  -P 8 -I {} -d '\n' \
-	yt-dlp -x -f "251/140" \
+	yt-dlp -x -f "$format" \
 	--embed-metadata  \
 	--parse-metadata "%(artist)s:%(meta_album_artist)s"  \
 	--replace-in-metadata "meta_album_artist" ", .*$" "" \
@@ -64,7 +66,17 @@ create_playlists(){
 
 }
 
+[ "$1" = "" ] && echo "No args !!! You must give me url at least one url of song | album | playlist on YTMusic." && exit 1
 
+
+
+print_help(){
+	echo ""
+
+}
+
+
+#[ "$1"='-f'] && 
 
 
 

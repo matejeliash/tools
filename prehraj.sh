@@ -188,11 +188,11 @@ download_video(){
 		
 	if [ "$(echo "$video_url" | grep "do=download")" ]
 	then
-		 nohup aria2c -x 16 -s 16  "$video_url" & 
+		 nohup aria2c --file-allocation=none -x 16 -s 16  "$video_url" & 
 	else
 		name="$(echo "$selected_url" | sed 's|https://prehraj.to/||g' | sed 's/..............$//g'| sed 's/%20/ /g')"
 
-		aria2c -x 16 -s 16 "$video_url" -o "${name}.mp4"
+	 nohup aria2c --file-allocation=none  -x 16 -s 16 "$video_url" -o "${name}.mp4" & 
 
 
 	fi
