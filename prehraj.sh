@@ -15,15 +15,18 @@ print_help(){
 
 echo "
 Usage:
-    $> prehraj.sh [-d] [query]
+    $> prehraj.sh [-d] [-o][query]
        prehraj.sh \"MOVIE_NAME\"
        prehraj.sh \"SERIES_NAME s01e10\"
     Both -d and query are optional, if query not provided keyboard input is required. 
     Options:
        -h, --help  
            Show  help message and exit
-       -d
+       -d, --download
            Selected file will be downloaded
+       -o, --original
+           Original video quality is selected
+
     "
 
 
