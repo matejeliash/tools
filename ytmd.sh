@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# 251 = 120ish bit opus audio with ,opus extension
+# 140 = 128 bit aac audio with m4a extension
+# 251/140 deafults to opus but if opus is not present then aac will be download 
+
+
 format="251/140"
 
 all_ids=""
