@@ -25,9 +25,10 @@ echo "$final_url" >> .fastshare_logs
 
 if [ "$1" = "-d" ];then
 
-	 aria2c "$final_url" -o "$part2" 
+	 #aria2c --max-overall-upload-limit=3M "$final_url" -o "$part2" 
+	 aria2c --max-overall-download-limit=3M "$final_url" -o "$part2" 
 else
-	mpv "$final_url"
+	mpv --demuxer-max-bytes=500000KiB "$final_url"
 
 fi
 

@@ -95,6 +95,8 @@ search(){
 	sizes="$( echo "$results" | grep -o  'tag--size">[^<]*'  | cut -d '>' -f 2)"
 
 
+
+
 	num_result="$(echo "$urls" | wc -l)"
 	
 	BLUE="\033[1;34m"
@@ -154,6 +156,8 @@ select_quality(){
 	video_page="$(curl "$selected_url" | grep "type: 'video/mp4'")"
 	#echo "$video_page"
 	options="$(echo "$video_page" | cut -d "'" -f 6)"
+
+	echo "$options"
 	selected="$(printf "ORIGINAL\n%s" "$options" | fzf --prompt "Select quality: ")"
 	[ $? != 0 ] && exit
 
